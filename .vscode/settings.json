@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["restservice"]
+  "cSpell.words": ["restservice"],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
