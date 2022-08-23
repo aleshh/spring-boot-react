@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import Album from "./components/Album";
+import AlbumRow from "./components/AlbumRow";
+import Album from "./interfaces/Album";
 
 const api = "http://localhost:8080/albums";
 
 function App() {
-  const [albums, setAlbums] = useState([]);
-
-  console.log(albums);
+  const [albums, setAlbums] = useState<Album[]>([]);
 
   useEffect(function fetchAlbums() {
     fetch(api)
@@ -21,7 +20,7 @@ function App() {
   return (
     <div className="App">
       {albums.map((a) => (
-        <Album album={a} />
+        <AlbumRow key={a.artist + a.name} album={a} />
       ))}
     </div>
   );
