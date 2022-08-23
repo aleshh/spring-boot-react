@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AlbumRow from "./components/AlbumRow";
+import AlbumList from "./components/AlbumList";
 import Album from "./interfaces/Album";
 
 const api = "http://localhost:8080/albums";
@@ -19,9 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      {albums.map((a) => (
-        <AlbumRow key={a.artist + a.name} album={a} />
-      ))}
+      <AlbumList albums={albums} />
     </div>
   );
 }
