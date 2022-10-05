@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import Album from "../interfaces/Album";
+import { useAlbumsContext } from "../contexts/AlbumsContextProvider";
 import AlbumRow from "./AlbumRow";
-
-interface AlbumListProps {
-  albums: Album[];
-}
 
 const List = styled.div`
   max-width: 800px;
@@ -15,7 +11,8 @@ const List = styled.div`
   border: 1px solid var(--foreground);
 `;
 
-function AlbumList({ albums }: AlbumListProps) {
+function AlbumList() {
+  const { albums } = useAlbumsContext();
   return (
     <List>
       {albums.map((a) => (
