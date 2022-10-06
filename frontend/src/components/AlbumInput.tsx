@@ -1,19 +1,23 @@
 import { useState, ChangeEvent } from "react";
+import { useAlbumsContext } from "../contexts/AlbumsContextProvider";
 import Album from "../interfaces/Album";
 
 function AlbumInput() {
+  const { addAlbum } = useAlbumsContext();
   const [newAlbum, setNewAlbum] = useState<Album>({ name: "", artist: "" });
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { id, value } = e.target;
-    console.log(id, value);
     const newValue: Album = { ...newAlbum };
     if (!(id === "name" || id === "artist")) return;
     newValue[id] = value;
     setNewAlbum(newValue);
   }
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    if (!addAlbum) return;
+    addAlbum(newAlbum);
+  }
 
   return (
     <>

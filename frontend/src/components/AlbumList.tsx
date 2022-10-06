@@ -13,6 +13,7 @@ const List = styled.div`
 
 function AlbumList() {
   const { albums } = useAlbumsContext();
+
   return (
     <List>
       {albums.map((a) => (

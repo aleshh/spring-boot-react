@@ -7,13 +7,10 @@ export async function fetchAlbums() {
   const data = await response.json();
 
   return data;
-
-  // fetch(api)
-  //   .then((res) => res.json())
-  //   .then((data) => return data);
 }
 
 export async function postAlbum(album: Album) {
+  console.log("posting album");
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -21,5 +18,8 @@ export async function postAlbum(album: Album) {
     },
     body: JSON.stringify(album),
   });
-  return response.json();
+  console.log("····························································");
+  console.log(response);
+  const data = response.json();
+  return data;
 }

@@ -5,11 +5,12 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { fetchAlbums } from "../api";
+import { fetchAlbums, postAlbum } from "../api";
 import Album from "../interfaces/Album";
 
 interface Context {
   albums: Album[];
+  addAlbum?: (album: Album) => void;
 }
 
 const defaultContext = {
@@ -30,8 +31,16 @@ function AlbumsContextProvider({ children }: { children: ReactNode }) {
     loadAlbums();
   }, []);
 
+  async function addAlbum(album: Album) {
+    const newAlbums = await postAlbum(album);
+
+    if (newAlbums) {
+      setAlbums(albums);
+    }
+  }
+
   return (
-    <AlbumsContext.Provider value={{ albums }}>
+    <AlbumsContext.Provider value={{ albums, addAlbum }}>
       {children}
     </AlbumsContext.Provider>
   );
