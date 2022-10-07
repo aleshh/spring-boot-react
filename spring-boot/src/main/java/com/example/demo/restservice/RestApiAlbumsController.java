@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class RestApiAlbumsController {
   	private List<Album>albums = new ArrayList<>();
 
@@ -21,14 +21,14 @@ public class RestApiAlbumsController {
 
 		public RestApiAlbumsController() {
 			albums.addAll(List.of(
-				new Album("Olé Coltrane", "John Coltrane"),
-				new Album("The Madcap Laughs", "Syd Barrett"),
-				new Album("What's Going On", "Marvin Gaye"),
-				new Album("Golden Hour", "Kacey Musgraves"),
-				new Album("Shoot Out the Lights", "Richard & Linda Thompson"),
-				new Album("Back Up Train", "Al Green"),
-				new Album("Tell Mama", "Etta James"),
-				new Album("Walkin'", "Miles Davis"),
+				// new Album("Olé Coltrane", "John Coltrane"),
+				// new Album("The Madcap Laughs", "Syd Barrett"),
+				// new Album("What's Going On", "Marvin Gaye"),
+				// new Album("Golden Hour", "Kacey Musgraves"),
+				// new Album("Shoot Out the Lights", "Richard & Linda Thompson"),
+				// new Album("Back Up Train", "Al Green"),
+				// new Album("Tell Mama", "Etta James"),
+				// new Album("Walkin'", "Miles Davis"),
 				new Album("Gamelan Music of Bali", "Field Musicians"),
 				new Album("Live in Cologne, 1954", "Billie Holiday")
 			));
@@ -43,10 +43,15 @@ public class RestApiAlbumsController {
 		}
 
 		@PostMapping(value = "/albums")
-		Iterable<Album> newAlbum(@RequestBody Album album) {
+		Iterable<Album> newAlbum(@RequestBody AlbumForm albumForm) {
 			System.out.println("····························································");
-			System.out.println(album);
-
+			// String name = newAlbum.get(name);
+			// System.out.print((Album) newAlbum);
+			// System.out.println(albumForm);
+			// System.out.println(albumForm.getName());
+			// System.out.println(albumForm.getArtist());
+			Album newAlbum = new Album(albumForm.getArtist(), albumForm.getName());
+			albums.add(newAlbum);
 			return albums;
 		}
 

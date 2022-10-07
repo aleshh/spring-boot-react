@@ -5,7 +5,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { fetchAlbums, postAlbum } from "../api";
+import { fetchAlbums, postAlbum } from "../api/api";
 import Album from "../interfaces/Album";
 
 interface Context {

@@ -17,7 +17,7 @@ function AlbumList() {
   return (
     <List>
       {albums.map((a) => (
-        <AlbumRow key={a.artist + a.name} album={a} />
+        <AlbumRow key={a.id || a.artist + a.name} album={a} />
       ))}
     </List>
   );

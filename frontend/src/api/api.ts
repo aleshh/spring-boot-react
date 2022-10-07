@@ -10,7 +10,6 @@ export async function fetchAlbums() {
 }
 
 export async function postAlbum(album: Album) {
-  console.log("posting album");
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -18,8 +17,6 @@ export async function postAlbum(album: Album) {
     },
     body: JSON.stringify(album),
   });
-  console.log("····························································");
-  console.log(response);
-  const data = response.json();
+  const data = await response.json();
   return data;
 }

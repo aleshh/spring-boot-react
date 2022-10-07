@@ -35,7 +35,9 @@ function AlbumInput() {
         onChange={handleChange}
         value={newAlbum.name}
       />
-      <button onClick={handleSubmit}>Add</button>
+      <button style={{ padding: "2px 30px" }} onClick={handleSubmit}>
+        Add
+      </button>
     </>
   );
 }
