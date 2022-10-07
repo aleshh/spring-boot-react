@@ -8,13 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
 public class RestApiAlbumsController {
   	private List<Album>albums = new ArrayList<>();
-
 
 		public static final Logger log = LoggerFactory.getLogger(RestApiAlbumsController.class);
 
@@ -38,6 +39,14 @@ public class RestApiAlbumsController {
 
 		@GetMapping(value = "/albums")
 		Iterable<Album> getAlbums() {
+			return albums;
+		}
+
+		@PostMapping(value = "/albums")
+		Iterable<Album> newAlbum(@RequestBody Album album) {
+			System.out.println("····························································");
+			System.out.println(album);
+
 			return albums;
 		}
 
