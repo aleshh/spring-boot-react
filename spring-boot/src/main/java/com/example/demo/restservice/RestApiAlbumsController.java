@@ -44,12 +44,6 @@ public class RestApiAlbumsController {
 
 		@PostMapping(value = "/albums")
 		Iterable<Album> newAlbum(@RequestBody AlbumForm albumForm) {
-			System.out.println("····························································");
-			// String name = newAlbum.get(name);
-			// System.out.print((Album) newAlbum);
-			// System.out.println(albumForm);
-			// System.out.println(albumForm.getName());
-			// System.out.println(albumForm.getArtist());
 			Album newAlbum = new Album(albumForm.getArtist(), albumForm.getName());
 			albums.add(newAlbum);
 			return albums;

@@ -35,7 +35,7 @@ function AlbumsContextProvider({ children }: { children: ReactNode }) {
     const newAlbums = await postAlbum(album);
 
     if (newAlbums) {
-      setAlbums(albums);
+      setAlbums(newAlbums);
     }
   }
 

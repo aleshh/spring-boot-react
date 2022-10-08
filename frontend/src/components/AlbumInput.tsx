@@ -20,7 +20,7 @@ function AlbumInput() {
   }
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="artist">Artist </label>
       <input
         id="artist"
@@ -35,10 +35,10 @@ function AlbumInput() {
         onChange={handleChange}
         value={newAlbum.name}
       />
-      <button style={{ padding: "2px 30px" }} onClick={handleSubmit}>
+      <button type="submit" style={{ padding: "2px 30px" }}>
         Add
       </button>
-    </>
+    </form>
   );
 }
 
